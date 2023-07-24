@@ -1,4 +1,35 @@
-<script></script>
+<script>
+import { store } from '../../store.js';
+export default{
+  data(){
+    return {
+      store, 
+      activeImg:0,
+    }
+  },
+  methods:{
+    getImgPath: (imgSrc)=> {
+      return new URL(imgSrc, import.meta.url).href;
+    },
+    changeCurrentImg(button){
+      if(button == 'prev'){
+        if(this.activeImg > 0){
+          this.activeImg--;
+        }else{
+          this.activeImg = this.store.sliderHeaderArray.length - 1;
+        };
+
+      }else if(button == 'next'){
+        if(this.activeImg < this.store.sliderHeaderArray.length - 1){
+          this.activeImg++;
+        }else{
+          this.activeImg = 0;
+        };
+      };
+    }
+  }
+}
+</script>
 <template>
   <header>
     <div class="container">
@@ -8,6 +39,7 @@
             order online
           </button>
         </div>
+        <!--end left nav section-->
         <nav class="center">
           <ul>
             <li>
@@ -52,6 +84,7 @@
             </li>
           </ul>
         </nav>
+        <!--end center nav section-->
         <div class="right">
           <ul>
             <li>
@@ -73,23 +106,39 @@
             </li>
           </ul>
         </div>
+        <!--end right nav section-->
       </nav>
+      <!--end header top -->
     </div>
+    <!--end container header top -->
+    <div class="header-bottom">
+      <!--da fare con il ciclo-->
+      <template v-for="(slide, index) in store.sliderHeaderArray" :key="index">
+        <div class="img-wrapper" :class="slide.name" v-if="index == activeImg" >
+          <img :src="getImgPath(slide.src)" :alt="slide.name">
+        </div>
+      </template>
+      <button class="prev-button" @click="changeCurrentImg('prev', index)">prev</button>
+      <button class="next-button" @click="changeCurrentImg('next', index)">next</button>
+    </div>
+    <!--end header bottom-->
   </header>
+  <!--end header -->
 </template>
 <style lang="scss" scoped>
 @use '../../assets/scss/partials/variables.scss' as *;
 header{
-  min-height: 80vh;
   background-image:url(../../assets/img/cielostellato.PNG) ;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: $text-light;
+  //end general style header
   .header-top{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    //end general style header top
     ul{
       li{
         a{
@@ -103,10 +152,12 @@ header{
         }
       }
     }
+    //header list general style
 
     svg{
       fill: $text-light;
     }
+    //end svg general style
     .left{
       button{
         background-color: $brown;
@@ -121,7 +172,7 @@ header{
         }
       }
     }
-
+    //end style section left header top
     nav.center{
       ul{
         display: flex;
@@ -150,7 +201,7 @@ header{
         }
       }
     }
-
+    //end style section center header top
     .right {
       ul{
         display: flex;
@@ -182,6 +233,61 @@ header{
           align-items: center;
           justify-content: center;
         }
+      }
+    }
+    //end style section right header top
+  }
+  //end header top style
+  .header-bottom{
+    padding-block: 20px;
+    position: relative;
+    overflow-x: hidden;
+    .prev-button,
+    .next-button{
+      width: 60px;
+      height: 60px;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: $bg-light;
+      color: $text-orange;
+      text-transform: uppercase;
+      position: absolute;
+      text-align:center;
+      line-height: 80px;
+      border-radius: 50%;
+      vertical-align:baseline;
+      top: calc(50% - 30px) ;
+      border: 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .prev-button{
+      left: -30px;
+      transform: rotate(-90deg);
+    }
+    .next-button{
+      right: -30px;
+      transform: rotate(90deg);
+    }
+    .img-wrapper{
+      &.urban{
+        background-image: url(../../assets/img/h3-rev-img-5.png);
+      }
+      &.taste{
+        background-image: url(../../assets/img/h3-rev-img-3.png);
+      }
+      &.crust{
+        background-image: url(../../assets/img/h3-rev-img-1.png);
+      }
+      max-width: 75%;
+      height: 300px;
+      margin-inline: auto;
+      text-align: center;
+      background-position: center;
+      background-size: 70% 100%;
+      background-repeat: no-repeat;
+      img{
+        max-height: 100%;
       }
     }
   }
