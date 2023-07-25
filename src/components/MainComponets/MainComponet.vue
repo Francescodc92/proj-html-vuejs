@@ -269,6 +269,40 @@ export default {
     </div>
   </section>
   <!--end section clients-->
+  <section id="menu">
+    <div class="text-ceontainer">
+      <p>choose your favourite</p>
+      <h2>the bast pizza menu in town</h2>
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium fugit unde corrupti nihil quis est beatae, et rem expedita veniam!
+      </span>
+    </div>
+    <div class="pizzas-container">
+     
+      <div class="pizza">
+        <div class="img-wrapper">
+          <img src="../../assets/img/h3-product-img-5a-150x150.png" alt="">
+          <div class="in-sold">sold</div>
+        </div>
+        <div class="pizza-description">
+          <h3>bismarck</h3>
+          <span class="old-price">$5.00</span>
+          <span class="actual-price">$30.00</span>
+        </div>
+      </div>
+      <div class="pizza">
+        <div class="img-wrapper">
+          <img src="../../assets/img/h3-product-img-6a-100x100.png" alt="">
+        </div>
+        <div class="pizza-description">
+          <h3>bismarck</h3>
+          <span class="old-price">$5.00</span>
+          <span class="actual-price">$30.00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--end section menu-->
 
  </main>
  <!--end main-->
@@ -493,6 +527,78 @@ export default {
           width: 100%;
           height: 100%;
           object-fit: contain;
+        }
+      }
+    }
+  }
+  //end section clients
+  #menu{
+    min-height: 400px;
+    .text-ceontainer{
+      max-width: 400px;
+      margin-inline: auto;
+      text-align: center;
+      padding-block: 20px;
+      p{
+        text-transform: uppercase;
+        font-size: 12px;
+        color:$text-orange;
+      }
+      h2{
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-block: 10px;
+      }
+      span{
+        font-size: 12px;
+        color:$text-gray-dark-2;
+      }
+    }
+    .pizzas-container{
+      display: flex;
+      .pizza{
+        min-width: 200px;
+        margin-inline: 20px;
+        position: relative;
+        .img-wrapper{
+          padding-top: 15px;
+          width: 100%;
+          img{
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .pizza-description{
+          text-align: center;
+          font-size: 12px;
+          h3{
+            text-transform: uppercase;
+            color:$text-gold-2;
+          }
+          span{
+            padding-inline: 5px;
+            font-weight: bold;
+            &.old-price{
+              color:$text-gray-1;
+            }
+            &.actual-price{
+              color:$text-orange;
+              padding-inline: 5px;
+            }
+          }
+        }
+        .in-sold{
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color:$text-orange;
+          color:$text-light;
         }
       }
     }
