@@ -138,6 +138,138 @@ export default {
       </p>
     </div>
   </section>
+  <!--end section banner-->
+  <section id="team">
+    <div class="card"> 
+      <img src="../../assets/img/h1-team-1a-700x700.jpg" alt="">
+      <div class="hover-card">
+        <div class="icon-wrapper">
+          <h3 class="name">frank bailey</h3>
+          <span>kitchen porter</span>
+          <ul class="social-links">
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-facebook-f" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-instagram" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card"> 
+      <img src="../../assets/img/h1-team-2a.jpg" alt="">
+      <div class="hover-card">
+        <div class="icon-wrapper">
+          <h3 class="name">frank bailey</h3>
+          <span>kitchen porter</span>
+          <ul class="social-links">
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-facebook-f" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-instagram" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card"> 
+      <img src="../../assets/img/h1-team-3a.jpg" alt="">
+      <div class="hover-card">
+        <div class="icon-wrapper">
+          <h3 class="name">frank bailey</h3>
+          <span>kitchen porter</span>
+          <ul class="social-links">
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-facebook-f" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-instagram" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card"> 
+      <img src="../../assets/img/h1-team-4a.jpg" alt="">
+      <div class="hover-card">
+        <div class="icon-wrapper">
+          <h3 class="name">frank bailey</h3>
+          <span>kitchen porter</span>
+          <ul class="social-links">
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-facebook-f" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <font-awesome-icon icon="fa-brands fa-instagram" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!--end section team-->
+  <section id="clients">
+    <div class="container">
+      <div class="clients-list">
+        <div class="client">
+          <img src="../../assets/img/h1-clients-img-1.png" alt="">
+        </div>
+        <div class="client">
+          <img src="../../assets/img/h1-clients-img-2.png" alt="">
+        </div>
+        <div class="client">
+          <img src="../../assets/img/h1-clients-img-3.png" alt="">
+        </div>
+        <div class="client">
+          <img src="../../assets/img/h1-clients-img-4.png" alt="">
+        </div>
+        <div class="client">
+          <img src="../../assets/img/h1-clients-img-5.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--end section clients-->
+
  </main>
  <!--end main-->
 </template>
@@ -297,4 +429,72 @@ export default {
     }
   }
   // end section banner stile
+  #team{
+    display: flex;
+    .card{
+      width:25%;
+      position: relative;
+      cursor: pointer;
+      &:hover .hover-card{
+        opacity: 1;
+        visibility: visible;
+      }
+      .hover-card{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        background: #ccc;
+        display: flex;
+        align-items: center;          
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms ease-in-out;
+        .icon-wrapper{
+          width: 90%;
+          height: 90%;
+          background: $brown;
+          color:#fff;
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .name{
+            text-transform: uppercase;
+          }
+          span{
+            text-transform: capitalize;
+          }
+          ul {
+            display: flex;
+            gap: 5px;
+            li a {
+              padding: 5px;
+            }
+            li:hover a{
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+  //end section team
+  #clients{
+    background-color:$bg-gray-light;
+    .clients-list{
+      display: flex;
+      .client{
+        widows: 20%;
+        padding-block: 30px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
 </style>
