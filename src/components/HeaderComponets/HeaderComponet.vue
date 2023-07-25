@@ -7,10 +7,6 @@ export default{
     return {
       store, 
       activeImg:0,
-      buttonArray:[
-       'prev',
-       'next'
-      ],
       headerCenterLinks:[
         {
           svg:true,
@@ -134,7 +130,7 @@ export default{
         </div>
       </template>
       <ButtonCarouselComponet 
-        v-for="(button, i) in buttonArray" :key="i"
+        v-for="(button, i) in store.buttonSliderArray" :key="i"
         :buttonText="button" 
         @changeImg="changeCurrentImg"
       />

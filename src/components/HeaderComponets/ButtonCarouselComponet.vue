@@ -20,7 +20,7 @@ export default {
       height: 60px;
       font-size: 12px;
       font-weight: bold;
-      background-color: $bg-light;
+      background-color: $bg-gray-light-2;
       color: $text-orange;
       text-transform: uppercase;
       position: absolute;
