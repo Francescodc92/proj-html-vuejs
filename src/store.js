@@ -32,5 +32,6 @@ export const store = reactive({
         text:'"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam delectus doloribus, vero id natus numquam aperiam, inventore amet odit unde optio! Magnam iste incidunt autem omnis animi debitis harum aut!"',
         person: 'lorem 2022'
       }
-    ]
+  ],
+  activeTestimonial:0,
 })
