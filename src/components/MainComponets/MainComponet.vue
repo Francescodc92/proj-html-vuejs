@@ -399,7 +399,7 @@ export default {
     </div>
   </section>
   <!--end section reservations-->
-
+  
  </main>
  <!--end main-->
 </template>
@@ -848,5 +848,5 @@ export default {
       }
     }
   }
-
+  
 </style>
