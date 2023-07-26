@@ -157,8 +157,10 @@
       align-items:center ;
       justify-content: center;
       .info{
-        width: 300px;
+        width: 90%;
+        max-width: 500px;
         height: 70%;
+        max-height: 600px;
         background-color: $bg-light-4;
         border-radius:20px ;
         h2{
