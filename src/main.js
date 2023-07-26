@@ -10,11 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import {  faLocationDot, faMagnifyingGlass, faUserGroup} from '@fortawesome/free-solid-svg-icons'
-import { faCalendar, faClock, faEye } from '@fortawesome/free-regular-svg-icons'
-import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faCalendar, faClock, faEye, faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faFacebookF, faInstagram, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library  fa-magnifying-glass*/
-library.add(faMagnifyingGlass, faEye, faFacebookF, faInstagram, faTwitter, faLocationDot, faUserGroup, faClock ,faCalendar)
+library.add(faMagnifyingGlass, faEye, faFacebookF, faInstagram, faTwitter, faLocationDot, faUserGroup, faClock ,faCalendar, faLinkedinIn, faHeart)
 
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)

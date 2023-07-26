@@ -9,10 +9,150 @@ export default {
     return {
       store,
       activeTestimonial:0,
+      cardsArray:[
+        '../../assets/img/h3-img-1.jpg',
+        '../../assets/img/h3-img-2.jpg',
+        '../../assets/img/h3-img-3.jpg',
+        '../../assets/img/h3-img-4.jpg',
+      ],
+      offetsArray:[
+        {
+          price:'$10',
+          name:'combo piccolo',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.'
+        },
+        {
+          price:'$20',
+          name:'combo mezzo',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.'
+        },
+        {
+          price:'$30',
+          name:'combo grande',
+          description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.'
+        },
+
+      ],
+      teamArray:[
+        {
+          link:'../../assets/img/h1-team-1a-700x700.jpg',
+          name:'giovanni rossi',
+          role:'cameriere',
+        },
+        {
+          link:'../../assets/img/h1-team-2a.jpg',
+          name:'valeria verdi',
+          role:'barista',
+        },
+        {
+          link:'../../assets/img/h1-team-3a.jpg',
+          name:'michela rossi',
+          role:'menager',
+        },
+        {
+          link:'../../assets/img/h1-team-4a.jpg',
+          name:'giacomo rossi',
+          role:'cuoco',
+        },
+      ],
+      clientsArray:[
+        {
+          link:'../../assets/img/h1-clients-img-1.png',
+          name:'client 1'
+        },
+        {
+          link:'../../assets/img/h1-clients-img-2.png',
+          name:'client 2'
+        },
+        {
+          link:'../../assets/img/h1-clients-img-3.png',
+          name:'client 3'
+        },
+        {
+          link:'../../assets/img/h1-clients-img-4.png',
+          name:'client 4'
+        },
+        {
+          link:'../../assets/img/h1-clients-img-5.png',
+          name:'client 5'
+        },
+      ],
+      pizzasArray:[
+        {
+          name: 'bismack',
+          link:'../../assets/img/h3-product-img-1a-100x100.png',
+          singlePrizeNoDisponible:'$5.00',
+          singlePrize:'',
+          price:'$30.00',
+          sold:false,
+        },
+        {
+          name: 'fiori di zucca',
+          link:'../../assets/img/h3-product-img-2a-150x150.png',
+          singlePrizeNoDisponible:'',
+          singlePrize:'$7.00',
+          price:'$30.00',
+          sold:false,
+        },
+        {
+          name: 'valdostana',
+          link:'../../assets/img/h3-product-img-3a-150x150.png',
+          singlePrizeNoDisponible:'',
+          singlePrize:'',
+          price:'$55.00',
+          sold:true,
+        },
+        {
+          name: 'pizza tartufata',
+          link:'../../assets/img/h3-product-img-4a-150x150.png',
+          singlePrizeNoDisponible:'',
+          singlePrize:'',
+          price:'$45.00',
+          sold:false,
+        },
+        {
+          name: 'francescana',
+          link:'../../assets/img/h3-product-img-5a-150x150.png',
+          singlePrizeNoDisponible:'',
+          singlePrize:'',
+          price:'$25.00',
+          sold:false,
+        },
+        {
+          name: 'campagnola',
+          link:'../../assets/img/h3-product-img-6a-100x100.png',
+          singlePrizeNoDisponible:'',
+          singlePrize:'$50.00',
+          price:'$95.00',
+          sold:false,
+        },
+      ],
+      eventsArray:[
+        {
+          day: '02',
+          month:'nov',
+          name:'TRADITIONAL NAPOLITAIN PIES IN KYOTO PIZZA MERCATO',
+          location:'204 E. Pizzetta Tommaso'
+        },
+        {
+          day: '03',
+          month:'nov',
+          name:'terrazza patio dining space opening this weekend',
+          location:'204 E. Pizzetta Tommaso'
+        },
+        {
+          day: '05',
+          month:'nov',
+          name:'sienna private dining room with stépane brunn',
+          location:'204 E. Pizzetta Tommaso'
+        },
+      ],
     }
   },
   methods:{
-  
+    getImgPath: (imgSrc)=> {
+      return new URL(imgSrc, import.meta.url).href;
+    },
     changeCurrentImg(button){
       if(button == 'prev'){
         if(this.activeTestimonial > 0){
@@ -35,38 +175,15 @@ export default {
 <template>
  <main>
   <section id="cards">
-    <div class="card"> 
-      <img src="../../assets/img/h3-img-1.jpg" alt="">
+    <div class="card" v-for="(card, index) in cardsArray " :key="index"> 
+      <img :src="getImgPath(card)" alt="">
       <div class="hover-card">
         <div class="icon-wrapper">
           <font-awesome-icon icon="fa-regular fa-eye" />
         </div>
       </div>
     </div>
-    <div class="card"> 
-      <img src="../../assets/img/h3-img-2.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <font-awesome-icon icon="fa-regular fa-eye" />
-        </div>
-      </div>
-    </div>
-    <div class="card"> 
-      <img src="../../assets/img/h3-img-3.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <font-awesome-icon icon="fa-regular fa-eye" />
-        </div>
-      </div>
-    </div>
-    <div class="card"> 
-      <img src="../../assets/img/h3-img-4.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <font-awesome-icon icon="fa-regular fa-eye" />
-        </div>
-      </div>
-    </div>
+
 
   </section>
   <!--end section cards-->
@@ -100,31 +217,15 @@ export default {
         </p>
       </div>
       <div class="offerts">
-        <div class="offert">
+        <div class="offert" v-for="(offert, index) in offetsArray" :key="index">
           <div class="offert-price">
-            $20
+            {{ offert.price }}
           </div>
           <div class="offert-description">
-            <h3>combo mezzo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.</p>
-          </div>
-        </div>
-        <div class="offert">
-          <div class="offert-price">
-            $30
-          </div>
-          <div class="offert-description">
-            <h3>combo grande</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.</p>
-          </div>
-        </div>
-        <div class="offert">
-          <div class="offert-price">
-            $10
-          </div>
-          <div class="offert-description">
-            <h3>combo piccolo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio ratione dolore, sit distinctio quisquam perspiciatis alias nostrum corrupti exercitationem.</p>
+            <h3> {{ offert.name }} </h3>
+            <p>
+              {{ offert.description }}
+            </p>
           </div>
         </div>
       </div>
@@ -140,12 +241,16 @@ export default {
   </section>
   <!--end section banner-->
   <section id="team">
-    <div class="card"> 
-      <img src="../../assets/img/h1-team-1a-700x700.jpg" alt="">
+    <div class="card" v-for="(element, index) in teamArray" :key="index"> 
+      <img :src="getImgPath(element.link)" :alt="element.name">
       <div class="hover-card">
         <div class="icon-wrapper">
-          <h3 class="name">frank bailey</h3>
-          <span>kitchen porter</span>
+          <h3 class="name">
+            {{ element.name }}
+          </h3>
+          <span>
+            {{ element.role }}
+          </span>
           <ul class="social-links">
             <li>
               <a href="">
@@ -166,104 +271,13 @@ export default {
         </div>
       </div>
     </div>
-    <div class="card"> 
-      <img src="../../assets/img/h1-team-2a.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <h3 class="name">frank bailey</h3>
-          <span>kitchen porter</span>
-          <ul class="social-links">
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-facebook-f" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="card"> 
-      <img src="../../assets/img/h1-team-3a.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <h3 class="name">frank bailey</h3>
-          <span>kitchen porter</span>
-          <ul class="social-links">
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-facebook-f" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="card"> 
-      <img src="../../assets/img/h1-team-4a.jpg" alt="">
-      <div class="hover-card">
-        <div class="icon-wrapper">
-          <h3 class="name">frank bailey</h3>
-          <span>kitchen porter</span>
-          <ul class="social-links">
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-facebook-f" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <font-awesome-icon icon="fa-brands fa-instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
   </section>
   <!--end section team-->
   <section id="clients">
     <div class="container">
       <div class="clients-list">
-        <div class="client">
-          <img src="../../assets/img/h1-clients-img-1.png" alt="">
-        </div>
-        <div class="client">
-          <img src="../../assets/img/h1-clients-img-2.png" alt="">
-        </div>
-        <div class="client">
-          <img src="../../assets/img/h1-clients-img-3.png" alt="">
-        </div>
-        <div class="client">
-          <img src="../../assets/img/h1-clients-img-4.png" alt="">
-        </div>
-        <div class="client">
-          <img src="../../assets/img/h1-clients-img-5.png" alt="">
+        <div class="client" v-for="(client, index) in clientsArray " :key="index">
+          <img :src="getImgPath(client.link)" :alt="client.name">
         </div>
       </div>
     </div>
@@ -279,25 +293,27 @@ export default {
     </div>
     <div class="pizzas-container">
      
-      <div class="pizza">
+      <div class="pizza" v-for="(pizza, index) in pizzasArray" :key="index">
         <div class="img-wrapper">
-          <img src="../../assets/img/h3-product-img-5a-150x150.png" alt="">
-          <div class="in-sold">sold</div>
+          <img 
+          :src="getImgPath(pizza.link)" :alt="pizza.name">
+          <div class="in-sold" v-if="pizza.sold">sold</div>
         </div>
         <div class="pizza-description">
-          <h3>bismarck</h3>
-          <span class="old-price">$5.00</span>
-          <span class="actual-price">$30.00</span>
-        </div>
-      </div>
-      <div class="pizza">
-        <div class="img-wrapper">
-          <img src="../../assets/img/h3-product-img-6a-100x100.png" alt="">
-        </div>
-        <div class="pizza-description">
-          <h3>bismarck</h3>
-          <span class="old-price">$5.00</span>
-          <span class="actual-price">$30.00</span>
+          <h3>
+            {{ pizza.name }}
+          </h3>
+          <span class="old-price"
+           v-if="pizza.singlePrizeNoDisponible != ''">$5.00</span>
+          <span class="actual-price" 
+            v-if="pizza.singlePrize != ''"
+          >
+            {{ pizza.singlePrize  }} - 
+          </span>
+          <span class="actual-price" 
+          >
+            {{ pizza.price  }} 
+          </span>
         </div>
       </div>
     </div>
@@ -311,46 +327,20 @@ export default {
           <h2>delish pizza deals</h2>
         </div>
         <ul>
-          <li>
+          <li v-for="(event, index) in eventsArray" :key="index">
             <div class="data">
-              <h3>02</h3>
-              <p>nov</p>
+              <h3>{{ event.day }}</h3>
+              <p>{{ event.month }}</p>
             </div>
             <div class="description">
-              <p>traditional napolitain pies in kyoto pizza mercato</p>
+              <p>{{ event.name }}</p>
               <span>
                 <font-awesome-icon icon="fa-solid fa-location-dot" />
-                204 E. pizzetta tommaso
+                {{ event.location }}
               </span>
             </div>
           </li>
-          <li>
-            <div class="data">
-              <h3>02</h3>
-              <p>nov</p>
-            </div>
-            <div class="description">
-              <p>traditional napolitain pies in kyoto pizza mercato</p>
-              <span>
-                <font-awesome-icon icon="fa-solid fa-location-dot" />
-                204 E. pizzetta tommaso
-              </span>
-            </div>
-          </li>
-          <li>
-            <div class="data">
-              <h3>02</h3>
-              <p>nov</p>
-            </div>
-            <div class="description">
-              <p>traditional napolitain pies in kyoto pizza mercato</p>
-              <span>
-                <font-awesome-icon icon="fa-solid fa-location-dot" />
-                204 E. pizzetta tommaso
-              </span>
-            </div>
-          </li>
-        
+          
         </ul>
       </div>
     </div>
@@ -430,6 +420,10 @@ export default {
   #testimonials{
     overflow-x: hidden;
     background-color: $bg-light-5;
+    background-image: url(../../assets/img/h3-testimonials-bckgrnd.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
     min-height: 400px;
     display: flex;
@@ -439,10 +433,6 @@ export default {
     .text-bg-container{
       max-width: 500px;
       margin-inline: auto;
-      background-image: url(../../assets/img/h3-testimonials-bckgrnd.jpg);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 14px;
@@ -477,6 +467,21 @@ export default {
       width: 50%;
     }
     .left{
+      position: relative;
+      &::after{
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../assets/img/h1-img-7n.png);
+        background-position: center;
+        background-size: 50%;
+        background-repeat: no-repeat;
+
+      }
       img{
         height:100%;
         width:100%;
@@ -635,10 +640,12 @@ export default {
     .pizzas-container{
       display: flex;
       .pizza{
-        min-width: 200px;
+        min-width: 25%;
         margin-inline: 20px;
-        position: relative;
         .img-wrapper{
+          position: relative;
+          max-width: 200px;
+          margin-inline: auto;
           padding-top: 15px;
           width: 100%;
           img{
@@ -654,10 +661,12 @@ export default {
             color:$text-gold-2;
           }
           span{
+            font-size: 16px;
             padding-inline: 5px;
             font-weight: bold;
             &.old-price{
               color:$text-gray-1;
+              text-decoration: line-through;
             }
             &.actual-price{
               color:$text-orange;
@@ -753,7 +762,8 @@ export default {
     .right{
       background-image: url(../../assets/img/h3-img-5a.jpg);
       background-position: center;
-      background-size: cover;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
     }
   }
   //end section events
