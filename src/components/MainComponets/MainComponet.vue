@@ -1,10 +1,29 @@
 <script>
 import ButtonCarouselComponet from '../../components/HeaderComponets/ButtonCarouselComponet.vue';
 import { store } from '../../store';
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
 export default {
   components:{
-    ButtonCarouselComponet
+    ButtonCarouselComponet,
+    Swiper,
+    SwiperSlide,
   },
+  // setup() { ricordare di chiedere a cosa serve 
+  //     const onSwiper = (swiper) => {
+  //       console.log(swiper);
+  //     };
+  //     const onSlideChange = () => {
+  //       console.log('slide change');
+  //     };
+  //     return {
+  //       onSwiper,
+  //       onSlideChange,
+  //     };
+  //   },
   data(){
     return {
       store,
@@ -291,32 +310,40 @@ export default {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium fugit unde corrupti nihil quis est beatae, et rem expedita veniam!
       </span>
     </div>
-    <div class="pizzas-container">
-     
-      <div class="pizza" v-for="(pizza, index) in pizzasArray" :key="index">
-        <div class="img-wrapper">
-          <img 
-          :src="getImgPath(pizza.link)" :alt="pizza.name">
-          <div class="in-sold" v-if="pizza.sold">sold</div>
-        </div>
-        <div class="pizza-description">
-          <h3>
-            {{ pizza.name }}
-          </h3>
-          <span class="old-price"
-           v-if="pizza.singlePrizeNoDisponible != ''">$5.00</span>
-          <span class="actual-price" 
-            v-if="pizza.singlePrize != ''"
-          >
-            {{ pizza.singlePrize  }} - 
-          </span>
-          <span class="actual-price" 
-          >
-            {{ pizza.price  }} 
-          </span>
-        </div>
+      <div class="pizzas-container ">
+        <swiper
+          :slides-per-view="4"
+          :space-between="50"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        > 
+          <swiper-slide v-for="(pizza, index) in pizzasArray" :key="index">
+            <div class="pizza" >
+              <div class="img-wrapper">
+                <img 
+                :src="getImgPath(pizza.link)" :alt="pizza.name">
+                <div class="in-sold" v-if="pizza.sold">sold</div>
+              </div>
+              <div class="pizza-description">
+                <h3>
+                  {{ pizza.name }}
+                </h3>
+                <span class="old-price"
+                v-if="pizza.singlePrizeNoDisponible != ''">$5.00</span>
+                <span class="actual-price" 
+                  v-if="pizza.singlePrize != ''"
+                >
+                  {{ pizza.singlePrize  }} 
+                </span>
+                <span class="actual-price" 
+                >
+                  {{ pizza.price  }} 
+                </span>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
-    </div>
   </section>
   <!--end section menu-->
   <section id="events">
@@ -639,6 +666,8 @@ export default {
     }
     .pizzas-container{
       display: flex;
+      user-select: none;
+      cursor: grab;
       .pizza{
         min-width: 25%;
         margin-inline: 20px;
