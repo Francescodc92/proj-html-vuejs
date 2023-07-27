@@ -9,13 +9,13 @@ export default {
 }
 </script>
 <template>
-  <button>
+  <a href="#menu">
     {{ buttonText }}
-  </button>
+  </a>
 </template>
 <style lang="scss" scoped>
 @use '../../assets/scss/partials/variables.scss' as *;
- button{
+ a{
     background-color: $brown;
     color: $text-light;
     border: 0;

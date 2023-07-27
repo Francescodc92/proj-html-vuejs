@@ -17,8 +17,9 @@
 <style lang="scss" scoped>
 #banner{
     background-image: url(../../assets/img/h3-background-img.jpg);
-    background-position: center;
-    background-size: cover;
+    background-position: center -50%;
+    background-size: 80% 50% ;
+  
     margin-block: 5px;
     .text-banner{
       max-width: 70%;

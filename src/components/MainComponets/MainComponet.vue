@@ -55,6 +55,9 @@ export default {
           this.store.activeTestimonial = 0;
         };
       };
+    },
+    cangeActiveTestimonial(nextIndex){
+      this.store.activeTestimonial = nextIndex;
     }
   }
 }
@@ -82,6 +85,17 @@ export default {
       :buttonText="button" 
       @changeImg="changeCurrentImg"
     />
+
+    <div class="points-container">
+      <div class="testimonials-point" 
+        v-for="(testimonial, index ) 
+        in store.testimonialArray"
+        :key="index"
+        :class="index == store.activeTestimonial ? 'active' : ''"
+        @click="cangeActiveTestimonial(index)"
+      >
+      </div>
+    </div>
     <!--end buttons carousel-->
   </section>
   <!--end section testimonials-->
@@ -123,7 +137,24 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    .points-container{
+      position:absolute;
+      bottom:50px;
+      left: 50%;
+      display: flex;
+      transform: translate(-50%);
+      .testimonials-point{
+        width: 20px;
+        height: 20px;
+        background-color:$gray;
+        border-radius: 50%;
+        margin-inline: 5px;
+        cursor: pointer;
+        &.active{
+          background-color: $brown;
+        }
+      }
+    }
   }
   // end section testimonials stile
 

@@ -21,6 +21,18 @@
             name:'sienna private dining room with stépane brunn',
             location:'204 E. Pizzetta Tommaso'
           },
+          {
+            day: '05',
+            month:'nov',
+            name:'sienna private dining room with stépane brunn',
+            location:'204 E. Pizzetta Tommaso'
+          },
+          {
+            day: '05',
+            month:'nov',
+            name:'sienna private dining room with stépane brunn',
+            location:'204 E. Pizzetta Tommaso'
+          },
         ],
       }
     }
@@ -70,11 +82,12 @@
       width: 50%;      
     }
     .left{
-      height: 100%;
+      height: 400px;
       background-image: url(../../assets/img/cielostellato.PNG);
       color:$text-light;
       padding-block:40px ;
       margin-bottom: 50px;
+      overflow: auto;
       .events-list{
         max-width:80% ;
         margin-inline: auto;
